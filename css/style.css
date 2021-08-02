@@ -1,0 +1,14 @@
+.card{
+padding: 0px;
+
+}
+
+.row{
+    padding: 20px 5% 0px 5%;
+}
+
+.innerContainer{
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
