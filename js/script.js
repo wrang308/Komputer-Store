@@ -1,4 +1,7 @@
+
+
 const laptops = document.getElementById("Laptops");
+const computerSpecs = document.getElementById("computerSpecs");
 
 
 let computers = [];
@@ -18,5 +21,16 @@ const addComputersToDropDown = (computer) => {
     computerElement.value = computer.id;
     computerElement.appendChild(document.createTextNode(computer.title));
     laptops.appendChild(computerElement);
+}
 
+const handleComputerMenuChange = e => {
+    const selectedComputer = computers[e.target.selectedIndex];
+    computerSpecs.innerText = selectedComputer.description;
+}
+
+laptops.addEventListener("change", handleComputerMenuChange);
+
+
+function getLoan(){
+    console.log("get a loan");
 }
