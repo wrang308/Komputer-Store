@@ -138,14 +138,14 @@ const handleBuyComputer = () => {
     console.log(document.getElementById("computersElement").value)
     const selectedComputer = computers[document.getElementById("computersElement").value-1];
     console.log(selectedComputer.price)
-    if(balance < selectedComputer.price){
-        alert("You can't buy that computer")
-    }else if(selectedComputer.stock <= 0){
-        alert("Stock is 0")
+    if(selectedComputer.stock <= 0){
+        alert(`No ${selectedComputer.title} left for sale`)
+    }else if(balance < selectedComputer.price){
+        alert(`You can't buy ${selectedComputer.title}, it's to expensive for you`)
     }else{
         selectedComputer.stock--;
         balance -= selectedComputer.price;
-        alert("You bought computer");
+        alert(`You bought ${selectedComputer.title}`);
     }
     
     renderBalance();
