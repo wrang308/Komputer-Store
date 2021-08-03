@@ -9,12 +9,12 @@ padding: 0px;
 
 .container{
     margin: 10px;
-    border: 1px solid black;
     padding: 10px;
     height: 330px;
     position: relative;
-    background-color: aliceblue;
+    background-color: white;
     width: 100%;
+    border-radius: 20px;
     
 }
 button{
@@ -32,15 +32,23 @@ button{
     width: 100%;
 }
 .green{
-    background-color:springgreen;
+    background-color:#4bf1a1;
 }
 .yellow{
-    background-color:yellow;
+    background-color:#edef4c;
 }
 .blue{
-    background-color:blue;
+    background-color:#4d6ff0;
     color: white;
 }
+.blue2{
+    background-color:#4CC9F1;
+}
+.orange{
+    background-color:orange;
+    color: white;
+}
+
 
 .img-wrap {
     width: 100%; 
@@ -74,7 +82,7 @@ div > img {
 
 
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #e69c2e, #e73c7e, #23a6d5, #42e433);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 }
