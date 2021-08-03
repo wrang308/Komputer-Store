@@ -14,6 +14,7 @@ const loanElement = document.getElementById("loan");
 const balanceElement = document.getElementById("balance");
 const payElement = document.getElementById("pay");
 const buyButton = document.getElementById("buy");
+const loanContainer = document.getElementById("loanContainer");
 
 let computers = [];
 let balance = 0;
@@ -65,6 +66,13 @@ const renderBalance = () =>{
     balanceElement.innerText = balance;
     payElement.innerText = pay;
     loanElement.innerText = loan;
+    if(loan > 0){
+        payLoanButton.style.display = "block";
+        loanContainer.style.visibility = "visible";
+    }else{
+        payLoanButton.style.display = "none";
+        loanContainer.style.visibility = "hidden";
+    }
 
 }
 
@@ -85,7 +93,6 @@ const handleGetLoan = () => {
     console.log(wantedLoan);
     balance += parseInt(wantedLoan);
     loan = parseInt(wantedLoan);
-    payLoanButton.style.display = "block";
     }
     renderBalance();
 }
@@ -95,7 +102,6 @@ const handleBank = () => {
         if((pay/100) * 10 > loan){
             pay -= loan;
             loan = 0;
-            payLoanButton.style.display = "none";
         }else{
             loan -= (pay/100) * 10;
             pay = (pay/100) * 90
@@ -111,7 +117,6 @@ const handleBank = () => {
 const handleWork = () => {
     
     pay += 100;
-
     
     renderBalance();
 }
