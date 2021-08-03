@@ -12,25 +12,40 @@
       <h4>Joe Banker</h4>
       <div class="row">
       <div class="col-sm-8">Balance:</div>
-      <div class="col-sm-4" >200</div>
+      <div class="col-sm-4" id="balance">0</div>
+      <div class="col-sm-8">Loan:</div>
+      <div class="col-sm-4" id="loan">0</div>
     </div>
-    <button class="green" onclick="getLoan()">Get a loan</button>
-  </div>
+    <div class="bottom">
+    <button class="green" style="width: calc(100% - 20px);" id="getLoan">Get a loan</button>
+    </div>
+    </div>
     </div>
     <div class="col-sm-4 ">
       <div class="innerContainer">
       <h4>Work</h4>
       <div class="row">
         <div class="col-sm-8">Pay:</div>
-        <div class="col-sm-4" >200</div>
+        <div class="col-sm-4" id="pay" >0</div>
       </div>
-      <button class="yellow">Bank</button>
-      <button class="blue">Work</button>
+      <div class="col-sm-12 bottom" style="display: flex;">
+        <button class="yellow flex-button" id="bank"">Bank</button>
+        <button class="blue flex-button" id="work">Work</button>
+        <button class="blue flex-button" id="payLoan" style="display: none;">Pay loan</button>
+      </div>
+     <!--   
+    </div>
+      <div class="table">
+      <button class="yellow table-cell" id="bank">Bank</button>
+      <button class="blue table-cell" id="work" >Work</button>
+      <!--button class="blue" style="right: 10px; width: calc(50% - 20px);">Pay loan</button-->
+   <!-- </div>-->
+    
     </div>
     </div>
-    <div class="col-sm-4  ">
+    <div class="col-sm-4">
       <div class="innerContainer">
-      <h4>Laptops</h4>  
+      <h4>Laptops</h4>
       <select name="computersElement" id="computersElement"></select>
       
       <h4>Features</h4>
@@ -39,7 +54,20 @@
     </div>
     <div class="col-sm-12 ">
       <div class="innerContainer">
-      Offer
+        <div class="row">
+        <div class="col-sm-4 img-wrap">
+        <img id="computerImage" src="https://noroff-komputer-store-api.herokuapp.com/assets/images/1.png" onerror="this.src='https://noroff-komputer-store-api.herokuapp.com/assets/images/5.png'" height="250px" alt="">
+      </div>
+      <div class="col-sm-4">
+        <h4 id="computerTitle"></h4>
+        <div id="description"></div>
+
+      </div>
+      <div class="col-sm-4">
+        <div class="priceText" id="price"></div>
+        <button class="blue" style="width:100%; bottom: 0px; position: absolute;">Buy Now</button>
+      </div>
+    </div>
     </div>
   </div>
   </div>
