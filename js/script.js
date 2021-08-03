@@ -135,8 +135,10 @@ const handleBuyComputer = () => {
     console.log(selectedComputer.price)
     if(balance < selectedComputer.price){
         alert("You can't buy that computer")
+    }else if(selectedComputer.stock <= 0){
+        alert("Stock is 0")
     }else{
-        
+        selectedComputer.stock--;
         balance -= selectedComputer.price;
         alert("You bought computer");
     }
