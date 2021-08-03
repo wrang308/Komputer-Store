@@ -13,6 +13,7 @@ const workButton = document.getElementById("work");
 const loanElement = document.getElementById("loan");
 const balanceElement = document.getElementById("balance");
 const payElement = document.getElementById("pay");
+const buyButton = document.getElementById("buy");
 
 let computers = [];
 let balance = 0;
@@ -70,10 +71,14 @@ const renderBalance = () =>{
 const handleGetLoan = () => {
 
     const wantedLoan = prompt("How much do you want to loan?");
+    console.log(parseInt(wantedLoan));
+    console.log((balance * 2))
+    console.log(parseInt(wantedLoan) > (balance * 2))
+
     if(loan > 0){
         alert("You already have a loan");
         
-    }else if(wantedLoan < 0 || wantedLoan > (balance * 2)){
+    }else if(parseInt(wantedLoan) <= 0 || parseInt(wantedLoan) > (balance * 2)){
         alert("You can't loan that amount");
         return;
     }else{
@@ -121,19 +126,27 @@ const handlePayLoan = () => {
     }
     pay = 0;
 
-    
     renderBalance();
 }
 
-
-
-
-
-
-
+const handleBuyComputer = () => {
+    console.log(document.getElementById("computersElement").value)
+    const selectedComputer = computers[document.getElementById("computersElement").value-1];
+    console.log(selectedComputer.price)
+    if(balance < selectedComputer.price){
+        alert("You can't buy that computer")
+    }else{
+        
+        balance -= selectedComputer.price;
+        alert("You bought computer");
+    }
+    
+    renderBalance();
+}
 
 computersElement.addEventListener("change", handleComputerMenuChange);
 getLoanButton.addEventListener("click", handleGetLoan);
 bankButton.addEventListener("click", handleBank);
 workButton.addEventListener("click", handleWork);
 payLoanButton.addEventListener("click", handlePayLoan);
+buyButton.addEventListener("click", handleBuyComputer);
