@@ -98,3 +98,10 @@ body {
         background-position: 0% 50%;
     }
 }
+
+.header {
+    padding: 20px 5% 20px 5%;
+    background: black;
+    color: white;
+    font-size: 30px;
+  }
