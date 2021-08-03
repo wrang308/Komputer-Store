@@ -63,9 +63,9 @@ const renderComputer = (computer) =>{
 }
 
 const renderBalance = () =>{
-    balanceElement.innerText = balance;
-    payElement.innerText = pay;
-    loanElement.innerText = loan;
+    balanceElement.innerText = balance + " Kr";
+    payElement.innerText = pay + " Kr";
+    loanElement.innerText = loan + " Kr";
     if(loan > 0){
         payLoanButton.style.display = "block";
         loanContainer.style.visibility = "visible";
