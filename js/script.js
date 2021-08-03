@@ -79,9 +79,6 @@ const renderBalance = () =>{
 const handleGetLoan = () => {
 
     const wantedLoan = prompt("How much do you want to loan?");
-    console.log(parseInt(wantedLoan));
-    console.log((balance * 2))
-    console.log(parseInt(wantedLoan) > (balance * 2))
 
     if(loan > 0){
         alert("You already have a loan");
@@ -90,7 +87,6 @@ const handleGetLoan = () => {
         alert("You can't loan that amount");
         return;
     }else{
-    console.log(wantedLoan);
     balance += parseInt(wantedLoan);
     loan = parseInt(wantedLoan);
     }
@@ -122,7 +118,6 @@ const handleWork = () => {
 }
 
 const handlePayLoan = () => {
-    console.log(loan)
     if(pay > loan){
         balance += (pay - loan);
         loan = 0;
@@ -135,9 +130,7 @@ const handlePayLoan = () => {
 }
 
 const handleBuyComputer = () => {
-    console.log(document.getElementById("computersElement").value)
     const selectedComputer = computers[document.getElementById("computersElement").value-1];
-    console.log(selectedComputer.price)
     if(selectedComputer.stock <= 0){
         alert(`No ${selectedComputer.title} left for sale`)
     }else if(balance < selectedComputer.price){
