@@ -7,13 +7,14 @@ padding: 0px;
     padding: 20px 5% 0px 5%;
 }
 
-.innerContainer{
+.container{
     margin: 10px;
     border: 1px solid black;
     padding: 10px;
     height: 330px;
     position: relative;
     background-color: aliceblue;
+    width: 100%;
     
 }
 button{
@@ -25,7 +26,7 @@ button{
     color: black;
     border-radius: 10px;
 }
-.innerContainer > .bottom{
+.container > .bottom{
     position: absolute;
     bottom: 20px;
     width: 100%;
