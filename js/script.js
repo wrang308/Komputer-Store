@@ -151,17 +151,17 @@ const handleWork = () => {
     renderBalance();
 }
 /**
- * Reduces the loan by the pay and set pay to 0. If pay if more than loan, the whole loan gets paided and the remaining amount is put into balance. 
+ * Reduces the loan by the pay and set pay to 0. If pay if more than loan, the whole loan gets paided and the remaining amount is left in pay. 
  * If the loan gets paid, pay loan button and the loan amount gets hidden. 
  */
 const handlePayLoan = () => {
     if (pay > loan) {
-        balance += (pay - loan);
+        pay -= loan;
         loan = 0;
     } else {
         loan -= pay;
+        pay = 0;
     }
-    pay = 0;
 
     renderBalance();
 }
