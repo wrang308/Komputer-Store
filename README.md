@@ -2,7 +2,7 @@
 A Dynamic website made with Visual Studio Code
 
 ## List of computers
-A list of computers is fetched from an API and added to a list.
+A list of computers is fetched from an API.
 Info about selected computer is shown
 
 ## Bank functionality
