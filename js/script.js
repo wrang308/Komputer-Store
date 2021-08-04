@@ -26,9 +26,9 @@ let pay = 0;
 /**
  * Makes a request to the API to fetch the JSON object and puts into the computer array
  */
-fetch(API+"computers")
+fetch(API + "computers")
     .then(response => response.json())
-    .then(data => computers = data )
+    .then(data => computers = data)
     .then(computers => addComputersToDropDown(computers))
     .catch((error) => {
         console.log(error)
@@ -39,7 +39,7 @@ fetch(API+"computers")
  */
 const addComputersToDropDown = (computers) => {
     computers.forEach(element => addComputersToDropDownMenu(element));
-    
+
     //First render
     renderComputer(computers[0]);
 }
@@ -67,9 +67,9 @@ const handleComputerMenuChange = e => {
  * @param {*} computer The computer you want to fetch features from
  * @returns A String of all features that the computer have
  */
-const getFeatures = (computer) =>{
+const getFeatures = (computer) => {
     let features = "";
-    for(let i = 0; i < computer.specs.length; i++){
+    for (let i = 0; i < computer.specs.length; i++) {
         features += computer.specs[i] + "\n";
     }
     return features;
@@ -78,7 +78,7 @@ const getFeatures = (computer) =>{
  * Renders features, image, title, description and price from the computer object to the Windows
  * @param {*} computer The computer you want to render in the window
  */
-const renderComputer = (computer) =>{
+const renderComputer = (computer) => {
     computerFeatures.innerText = getFeatures(computer);
     computerImage.src = API + computer.image;
     computerTitle.innerText = computer.title;
@@ -89,14 +89,14 @@ const renderComputer = (computer) =>{
  * Renders balance, loan and pay to the windows. If loan exists it will show the pay loan button and the outstanding loan.
  * If no loan exists the button and div with loan amount will be hidden
  */
-const renderBalance = () =>{
+const renderBalance = () => {
     balanceElement.innerText = balance + " Kr";
     payElement.innerText = pay + " Kr";
     loanElement.innerText = loan + " Kr";
-    if(loan > 0){
+    if (loan > 0) {
         payLoanButton.style.display = "block";
         loanContainer.style.visibility = "visible";
-    }else{
+    } else {
         payLoanButton.style.display = "none";
         loanContainer.style.visibility = "hidden";
     }
@@ -108,37 +108,37 @@ const renderBalance = () =>{
  * When all is done it will render new loan or alert why loan wasn't given
  */
 const handleGetLoan = () => {
-    if(loan > 0){
+    if (loan > 0) {
         alert("You already have a loan");
-    }else{
+    } else {
         const wantedLoan = prompt("How much do you want to loan?");
-        
-        if(parseInt(wantedLoan) <= 0 || parseInt(wantedLoan) > (balance * 2)){
+
+        if (parseInt(wantedLoan) <= 0 || parseInt(wantedLoan) > (balance * 2)) {
             alert("You can't loan that amount");
-        }else{
-        balance += parseInt(wantedLoan);
-        loan = parseInt(wantedLoan);
+        } else {
+            balance += parseInt(wantedLoan);
+            loan = parseInt(wantedLoan);
         }
     }
     renderBalance();
 }
 /**
- *  Takes the pay amount and puts it into balance. If loan exists 10% is deducted to pay the loan. If loan is less than 10% only loan amount is deducted.
+ *  Takes the pay amount and puts it into balance. If loan exists 10% is deducted to pay the loan. If loan is less than 10% only loan amount is deducted. The new balance is rendered
  */
 const handleBank = () => {
-    if(loan > 0){
-        if((pay/100) * 10 > loan){
+    if (loan > 0) {
+        if ((pay / 100) * 10 > loan) {
             pay -= loan;
             loan = 0;
-        }else{
-            loan -= (pay/100) * 10;
-            pay = (pay/100) * 90
+        } else {
+            loan -= (pay / 100) * 10;
+            pay = (pay / 100) * 90
         }
 
     }
     balance += pay;
     pay = 0;
-    
+
     renderBalance();
 }
 /**
@@ -153,10 +153,10 @@ const handleWork = () => {
  * If the loan gets paid, pay loan button and the loan amount gets hidden. 
  */
 const handlePayLoan = () => {
-    if(pay > loan){
+    if (pay > loan) {
         balance += (pay - loan);
         loan = 0;
-    }else{
+    } else {
         loan -= pay;
     }
     pay = 0;
@@ -168,17 +168,17 @@ const handlePayLoan = () => {
  * If no computer is left in stock or user doesn't have enought money no computer will be bought and an error message will be shown.
  */
 const handleBuyComputer = () => {
-    const selectedComputer = computers[document.getElementById("computersElement").value-1];
-    if(selectedComputer.stock <= 0){
+    const selectedComputer = computers[document.getElementById("computersElement").value - 1];
+    if (selectedComputer.stock <= 0) {
         alert(`No ${selectedComputer.title} left for sale`)
-    }else if(balance < selectedComputer.price){
+    } else if (balance < selectedComputer.price) {
         alert(`You can't buy ${selectedComputer.title}, it's to expensive for you`)
-    }else{
+    } else {
         selectedComputer.stock--;
         balance -= selectedComputer.price;
         alert(`You bought ${selectedComputer.title}`);
     }
-    
+
     renderBalance();
 }
 

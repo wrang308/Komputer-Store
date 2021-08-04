@@ -1,6 +1,7 @@
 
 .row{
-    padding: 20px 5% 0px 5%;
+    padding: 20px 3% 0px 3%;
+    margin:0px;
 }
 
 .container{
@@ -81,9 +82,19 @@ body {
     }
 }
 
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
 .header {
     padding: 20px 5% 20px 5%;
     background: black;
     color: white;
     font-size: 30px;
+    animation: 1s ease-out 0s 1 slideInFromRight;
   }
