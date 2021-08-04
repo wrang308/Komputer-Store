@@ -112,7 +112,9 @@ const handleGetLoan = () => {
         alert("You already have a loan");
     } else {
         const wantedLoan = prompt("How much do you want to loan?");
-
+        if (wantedLoan === null) {
+            return;
+        }
         if (parseInt(wantedLoan) <= 0 || parseInt(wantedLoan) > (balance * 2)) {
             alert("You can't loan that amount");
         } else {
