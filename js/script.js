@@ -111,8 +111,8 @@ const handleGetLoan = () => {
     if (loan > 0) {
         alert("You already have a loan");
     } else {
-        const wantedLoan = prompt("How much do you want to loan?");
-        if (wantedLoan === null) {
+        const wantedLoan = parseInt(prompt("How much do you want to loan?"));
+        if (isNaN(wantedLoan)) {
             return;
         }
         if (parseInt(wantedLoan) <= 0 || parseInt(wantedLoan) > (balance * 2)) {
